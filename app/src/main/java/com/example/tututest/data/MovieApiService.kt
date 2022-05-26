@@ -1,14 +1,11 @@
 package com.example.tututest
 
-import android.content.ContentValues
-import android.util.Log
 import com.example.tututest.models.MovieModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
 
-interface ApiService {
+interface MovieApiService {
 
     @GET("/movie?field=rating.kp&search=7-10&field=year&search=2017-2020&field=typeNumber&search=2&sortField=year&sortType=1&sortField=votes.imdb&sortType=-1&token=ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06")
     suspend fun getMovies(): MovieModel
@@ -17,15 +14,15 @@ interface ApiService {
 
         val BASE_URL = "https://api.kinopoisk.dev"
 
-        var apiService: ApiService? = null
-        fun getInstance() : ApiService {
-            if (apiService == null) {
-                apiService = Retrofit.Builder()
+        var movieApiService: MovieApiService? = null
+        fun getInstance() : MovieApiService {
+            if (movieApiService == null) {
+                movieApiService = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
-                    .build().create(ApiService::class.java)
+                    .build().create(MovieApiService::class.java)
             }
-            return apiService!!
+            return movieApiService!!
         }
     }
 
