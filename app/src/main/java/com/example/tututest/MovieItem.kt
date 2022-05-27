@@ -27,6 +27,7 @@ import org.intellij.lang.annotations.JdkConstants
 
 @Composable
 fun MovieItem(movie: Doc) {
+
     Row(
         modifier = Modifier
             .fillMaxHeight()
