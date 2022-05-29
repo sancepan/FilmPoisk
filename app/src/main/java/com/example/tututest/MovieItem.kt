@@ -3,6 +3,7 @@ package com.example.tututest
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
@@ -26,12 +27,13 @@ import com.example.tututest.ui.theme.ItemColor
 import org.intellij.lang.annotations.JdkConstants
 
 @Composable
-fun MovieItem(movie: Doc) {
+fun MovieItem(movie: Doc, navigateToProfile: (Doc) -> Unit) {
 
     Row(
         modifier = Modifier
             .fillMaxHeight()
             .padding(3.dp)
+            .clickable { navigateToProfile(movie) }
             //.clip(RoundedCornerShape(5.dp))
             //.background(ItemColor)
     ){

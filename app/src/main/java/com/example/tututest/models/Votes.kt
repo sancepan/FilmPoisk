@@ -1,5 +1,7 @@
 package com.example.tututest.models
 
+import java.io.Serializable
+
 data class Votes(
     val _id: String,
     val await: Int,
@@ -7,4 +9,4 @@ data class Votes(
     val imdb: Int,
     val kp: Int,
     val russianFilmCritics: Int
-)
+) : Serializable

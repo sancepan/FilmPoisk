@@ -1,5 +1,7 @@
 package com.example.tututest.models
 
+import java.io.Serializable
+
 data class Rating(
     val _id: String,
     val await: Double,
@@ -7,4 +9,4 @@ data class Rating(
     val imdb: Double,
     val kp: Double,
     val russianFilmCritics: Double
-)
+) : Serializable

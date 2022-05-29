@@ -1,5 +1,6 @@
 package com.example.tututest
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -21,6 +22,7 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemsIndexed
 import com.example.tututest.data.MovieRepositpryImpl
+import com.example.tututest.models.Doc
 import com.example.tututest.ui.theme.BackgroundColor
 
 class MainActivity : ComponentActivity() {
@@ -39,7 +41,9 @@ class MainActivity : ComponentActivity() {
                     .background(BackgroundColor)
             ) {
                 Header()
-                MovieList(vm = mainViewModel)
+                MovieList(vm = mainViewModel){
+                    startActivity(ProfileActivity.newIntent(this@MainActivity, it))
+                }
             }
         }
     }
@@ -54,11 +58,11 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MovieList(vm: MainViewModel) {
+fun MovieList(vm: MainViewModel, navigateToProfile: (Doc) -> Unit) {
     val projects = vm.getPhotoPagination().collectAsLazyPagingItems()
     LazyColumn {
         itemsIndexed(projects) { index, item ->
-            MovieItem(movie = item!!)
+            MovieItem(movie = item!!, navigateToProfile)
         }
         projects.apply {
             when {

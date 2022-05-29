@@ -1,5 +1,7 @@
 package com.example.tututest.models
 
+import java.io.Serializable
+
 data class Doc(
     val alternativeName: String,
     val color: String,
@@ -16,4 +18,4 @@ data class Doc(
     val type: String,
     val votes: Votes,
     val year: Int
-)
+) :Serializable
