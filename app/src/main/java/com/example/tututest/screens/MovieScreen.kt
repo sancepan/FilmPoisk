@@ -1,5 +1,7 @@
 package com.example.tututest
 
+import android.app.Activity
+import android.content.Intent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
@@ -22,12 +24,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat.startActivity
 import coil.compose.rememberImagePainter
 import com.example.tututest.models.movie.Country
 import com.example.tututest.models.movie.Genre
@@ -298,8 +302,10 @@ fun MovieScreen(movie: MovieProfile) {
 @Composable
 fun ScrollAwareTopAppBar(
     scroll: Int,
-    name: String
+    name: String,
 ) {
+
+    val activity = (LocalContext.current as? Activity)
 
     val statusBarColor = if (scroll > 1100) {
         Color.Black
@@ -317,7 +323,10 @@ fun ScrollAwareTopAppBar(
         backgroundColor = statusBarColor,
         elevation = 0.dp,
     ) {
-        IconButton(onClick = {  }) {
+        IconButton(onClick = {
+        //startActivity(Intent(mContext, MainActivity::class.java))
+            activity?.finish()
+        }) {
             Icon(Icons.Filled.ArrowBack, contentDescription = "Меню", tint = Color.White)
         }
         
