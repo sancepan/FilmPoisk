@@ -37,7 +37,7 @@ fun PersonItem(person: Person) {
                 .fillMaxHeight()
                 //.border(width = 1.dp, color = BorderColor)
                 .clip(RoundedCornerShape(5.dp))
-                .size(width = 40.dp, height = 50.dp)
+                .size(width = 43.dp, height = 50.dp)
                 .align(Alignment.CenterVertically)
         )
         Column(

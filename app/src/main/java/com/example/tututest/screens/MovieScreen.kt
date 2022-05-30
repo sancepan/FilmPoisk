@@ -7,7 +7,12 @@ import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,6 +35,7 @@ import com.example.tututest.models.movie.MovieProfile
 import com.example.tututest.models.movieList.Doc
 import com.example.tututest.ui.theme.BackgroundColor
 import com.example.tututest.ui.theme.ItemColor
+import java.lang.Float.min
 import java.text.DecimalFormat
 
 @Composable
@@ -284,7 +290,50 @@ fun MovieScreen(movie: MovieProfile) {
 
         }
     }
+
+    ScrollAwareTopAppBar(scrollState.value, movie.name)
+
 }
+
+@Composable
+fun ScrollAwareTopAppBar(
+    scroll: Int,
+    name: String
+) {
+
+    val statusBarColor = if (scroll > 1100) {
+        Color.Black
+    } else {
+        Color.Transparent
+    }
+
+    val text = if (scroll > 1100) {
+        name
+    } else {
+        ""
+    }
+
+    TopAppBar(
+        backgroundColor = statusBarColor,
+        elevation = 0.dp,
+    ) {
+        IconButton(onClick = {  }) {
+            Icon(Icons.Filled.ArrowBack, contentDescription = "Меню", tint = Color.White)
+        }
+        
+        Text(
+            text = text,
+            color = Color.White,
+            fontSize = 21.sp,
+            fontWeight = FontWeight.Bold,
+            modifier = Modifier.padding(start = 10.dp)
+        )
+
+    }
+}
+
+
+
 
 
 
