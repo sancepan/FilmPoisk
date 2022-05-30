@@ -1,4 +1,4 @@
-package com.example.tututest
+package com.example.tututest.network
 
 import com.example.tututest.data.MovieApiService
 import retrofit2.Retrofit

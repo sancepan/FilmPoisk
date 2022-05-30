@@ -1,6 +1,5 @@
 package com.example.tututest
 
-import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -22,7 +21,9 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemsIndexed
 import com.example.tututest.data.MovieRepositpryImpl
-import com.example.tututest.models.Doc
+import com.example.tututest.models.movieList.Doc
+import com.example.tututest.network.RetrofitBuilder
+import com.example.tututest.network.ViewModelFactory
 import com.example.tututest.ui.theme.BackgroundColor
 
 class MainActivity : ComponentActivity() {

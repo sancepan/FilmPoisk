@@ -1,11 +1,11 @@
-package com.example.tututest
+package com.example.tututest.network
 
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.tututest.data.MovieRepository
-import com.example.tututest.models.Doc
+import com.example.tututest.models.movieList.Doc
 
 class MovieSource(private val movieRepository: MovieRepository): PagingSource<Int, Doc>() {
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Doc> {

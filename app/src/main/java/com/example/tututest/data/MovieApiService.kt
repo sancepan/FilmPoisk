@@ -1,6 +1,7 @@
 package com.example.tututest.data
 
-import com.example.tututest.models.MovieModel
+import com.example.tututest.models.movie.MovieProfile
+import com.example.tututest.models.movieList.MovieModel
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -11,4 +12,11 @@ interface MovieApiService {
         @Query("page") pageNumber: Int,
         @Query("limit") limit: Int = 10
     ): MovieModel
+
+    @GET("/movie?token=EBTAGQF-FHWMWVM-HHZ99RS-7NFD4ZP&field=id")
+    suspend fun getMovieProfile(
+        @Query("search") id: Int
+    ): MovieProfile
+
+
 }

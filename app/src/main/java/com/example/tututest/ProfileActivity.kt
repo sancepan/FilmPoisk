@@ -5,8 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import com.example.tututest.models.Doc
+import com.example.tututest.models.movieList.Doc
 
 class ProfileActivity : ComponentActivity()  {
 
@@ -14,11 +15,15 @@ class ProfileActivity : ComponentActivity()  {
         intent?.getSerializableExtra(MOVIE_ID) as Doc
     }
 
+    private val movieProfileViewModel by viewModels<MovieProfileViewModel>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.window.statusBarColor = ContextCompat.getColor(this,R.color.black)
         setContent {
-            MovieScreen(movie)
+            val id = movie.id
+            MovieScreen(movieProfileViewModel.movieProfileResponse)
+            movieProfileViewModel.getMovieProfile(id)
         }
     }
 

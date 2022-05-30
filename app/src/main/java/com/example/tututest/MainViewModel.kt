@@ -5,7 +5,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.example.tututest.data.MovieRepository
-import com.example.tututest.models.Doc
+import com.example.tututest.models.movieList.Doc
+import com.example.tututest.network.MovieSource
 import kotlinx.coroutines.flow.Flow
 
 class MainViewModel(private val movieRepository: MovieRepository) : ViewModel() {

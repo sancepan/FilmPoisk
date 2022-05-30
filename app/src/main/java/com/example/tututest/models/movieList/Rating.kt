@@ -1,4 +1,4 @@
-package com.example.tututest.models
+package com.example.tututest.models.movieList
 
 import java.io.Serializable
 
