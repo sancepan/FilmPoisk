@@ -49,13 +49,13 @@ fun PersonItem(person: Person) {
                 .align(Alignment.CenterVertically)
         ) {
             Text(
-                text = person.name,
+                text = person.name + "",
                 color = Color.White,
                 fontSize = 15.sp,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = person.enName,
+                text = person.enName + "",
                 color = Color.White.copy(alpha = 0.5f),
                 fontSize = 13.sp,
             )

@@ -73,14 +73,19 @@ fun MovieList(vm: MainViewModel, navigateToProfile: (Doc) -> Unit) {
                         modifier = Modifier.fillParentMaxSize()
                     ) {
                         CircularProgressIndicator(
-                            color = Color.White
+                            color = Color.White.copy(alpha = 0.5f)
                         )
                     }
                 }
                 loadState.append is LoadState.Loading -> item {
-                    CircularProgressIndicator(
-                        color = Color.Blue
-                    )
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier.fillParentMaxWidth()
+                    ) {
+                        CircularProgressIndicator(
+                            color = Color.White.copy(alpha = 0.5f)
+                        )
+                    }
                 }
                 loadState.refresh is LoadState.Error -> item {
                     Column(
@@ -92,13 +97,15 @@ fun MovieList(vm: MainViewModel, navigateToProfile: (Doc) -> Unit) {
                             text = "Подключитесь к интернету",
                             color = Color.White,
                             fontWeight = FontWeight.Medium,
-                            modifier = Modifier.size(15.dp)
+                            modifier = Modifier
+                                .size(15.dp)
                                 .fillMaxSize()
                         )
                         Text(
                             text =  "Проверьте подулючение к сети",
                             color = Color.White,
-                            modifier = Modifier.size(13.dp)
+                            modifier = Modifier
+                                .size(13.dp)
                                 .padding(vertical = 3.dp)
                         )
                         CircularProgressIndicator(

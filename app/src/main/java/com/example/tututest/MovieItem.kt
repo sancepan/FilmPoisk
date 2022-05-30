@@ -55,7 +55,7 @@ fun MovieItem(movie: Doc, navigateToProfile: (Doc) -> Unit) {
             Row() {
                 Column() {
                     Text(
-                        text = movie.name,
+                        text = movie.name + "",
                         color = Color.White,
                         fontSize = 15.sp,
                         modifier = Modifier.padding(top = 5.dp),
@@ -63,7 +63,7 @@ fun MovieItem(movie: Doc, navigateToProfile: (Doc) -> Unit) {
                     )
                     Row() {
                         Text(
-                            text = movie.alternativeName,
+                            text = movie.alternativeName + "",
                             color = Color.White,
                             fontSize = 13.sp
                         )

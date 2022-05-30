@@ -17,9 +17,11 @@ class MovieSource(private val movieRepository: MovieRepository): PagingSource<In
                 prevKey = if (page == 1) null else page - 1,
                 nextKey = if (params.loadSize >= 10) {
                     Log.e(TAG, "1234 " + " " + params.loadSize)
+                    Log.e(TAG, "12345  $page")
                     page.plus(1)
                 } else {
                     null
+                    Log.e(TAG, "123456  $page")
                     Log.e(TAG, "123" + movieResponse.docs.size + " " + params.loadSize)
                 }
                 //nextKey = page.plus(1)
