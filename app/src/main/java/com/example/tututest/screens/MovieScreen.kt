@@ -1,45 +1,42 @@
 package com.example.tututest
 
 import android.app.Activity
-import android.content.Intent
+import androidx.compose.animation.core.*
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyHorizontalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.*
+import androidx.compose.material.Icon
+import androidx.compose.material.IconButton
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Info
-import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Search
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.core.content.ContextCompat.startActivity
 import coil.compose.rememberImagePainter
 import com.example.tututest.models.movie.Country
 import com.example.tututest.models.movie.Genre
 import com.example.tututest.models.movie.MovieProfile
-import com.example.tututest.models.movieList.Doc
 import com.example.tututest.ui.theme.BackgroundColor
 import com.example.tututest.ui.theme.ItemColor
-import java.lang.Float.min
+import com.example.tututest.ui.theme.ShimmerColorShades
 import java.text.DecimalFormat
 
 @Composable
@@ -51,7 +48,7 @@ fun MovieScreen(movie: MovieProfile) {
         modifier = Modifier
             .verticalScroll(scrollState)
             .fillMaxSize()
-            .background(BackgroundColor)
+            .background(BackgroundColor),
     ) {
         val height = 400.dp
         val width = 210
@@ -340,6 +337,8 @@ fun ScrollAwareTopAppBar(
 
     }
 }
+
+
 
 
 

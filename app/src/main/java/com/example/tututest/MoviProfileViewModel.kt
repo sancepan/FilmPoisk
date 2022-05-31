@@ -1,5 +1,7 @@
 package com.example.tututest
 
+import android.content.ContentValues.TAG
+import android.util.Log
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
@@ -11,6 +13,7 @@ import com.example.tututest.network.RetrofitBuilder
 import kotlinx.coroutines.launch
 
 class MovieProfileViewModel : ViewModel() {
+    var isLoading = mutableStateOf(false)
     var movieProfileResponse: MovieProfile by mutableStateOf(MovieProfile("123",
         listOf(Country("Страна")),
         "Описание",
@@ -29,10 +32,12 @@ class MovieProfileViewModel : ViewModel() {
             val apiService = RetrofitBuilder.apiService
             try {
                 val movieProfile = apiService.getMovieProfile(id)
+                isLoading.value = true
                 movieProfileResponse = movieProfile
             }
             catch (e: Exception) {
                 errorMessage = e.message.toString()
+                Log.e(TAG, "321")
             }
         }
     }
