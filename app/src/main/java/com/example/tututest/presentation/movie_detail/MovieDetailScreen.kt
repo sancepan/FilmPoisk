@@ -124,11 +124,15 @@ fun MovieDetailScreen(
                 ) {
 
                     Text(
-                        text =
+                        /*text =
                         movie.year.toString() + ", " +
                                 movie.countries +
                                 ", " +
-                                movie.genres,
+                                movie.genres,*/
+                        text = movie.year.toString() + ", " +
+                                movie.countries.joinToString(", ") +
+                                ", " +
+                                movie.genres.joinToString(", "),
                         fontSize = 15.sp,
                         textAlign = TextAlign.Center,
                         color = Color.White.copy(alpha = 0.5f),

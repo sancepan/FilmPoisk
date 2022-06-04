@@ -5,5 +5,5 @@ import com.example.tututest.data.dto.movieList.MoviesPageDto
 
 interface MovieRepository {
     suspend fun getMovies(page: Int): MoviesPageDto
-    suspend fun getMovieProfile(id: String): MovieDetailDto
+    suspend fun getMovieDetail(id: String): MovieDetailDto
 }

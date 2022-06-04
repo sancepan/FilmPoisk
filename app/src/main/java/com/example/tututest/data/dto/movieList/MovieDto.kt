@@ -26,7 +26,7 @@ fun MovieDto.toMovie(): Movie{
         id = id,
         poster = poster.url,
         ruName = name + "",
-        altName = enName.toString() + "",
+        altName = names[1].name + "",
         year = year,
         ratingKP = rating.kp
     )

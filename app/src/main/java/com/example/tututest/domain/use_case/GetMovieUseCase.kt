@@ -16,7 +16,7 @@ class GetMovieUseCase @Inject constructor(
     operator fun invoke(id: String): Flow<Resource<MovieDetail>> = flow {
         try {
             emit(Resource.Loading<MovieDetail>())
-            val movies = repository.getMovieProfile(id).toMovieDetail()
+            val movies = repository.getMovieDetail(id).toMovieDetail()
             emit(Resource.Success<MovieDetail>(movies))
         } catch (e: HttpException){
             emit(Resource.Error<MovieDetail>(e.localizedMessage ?: "Произошла непредвиденная ошибка"))
